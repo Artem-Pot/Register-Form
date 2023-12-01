@@ -59,15 +59,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*-----*/
-
 body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.42857143;
-    color: #333;
+    color: #494545;
     background-color: #fff;
+
 }
+
 .signin {
     background-color: #e0dbdb;
     display: flex;
@@ -77,11 +78,80 @@ body {
 }
 
 .signin__box {
+    padding: 20px;
     width: 400px;
     max-height: 400px;
     height: 100%;
     background-color: rgb(197, 191, 191);
-    display: block;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: -16px 17px 8px -12px rgba(34, 60, 80, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.signin__title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+   
+}
+
+#login, #password  {
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.error {
+    font-size: 20px;
+    display: none;
+    position: absolute;
+    top: 25px;
+    font-weight: 600;
+    color: red;
+}
+
+
+.block {
+
+}
+
+.button_login {
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.button_login:hover {
+    background-color: rgb(60, 120, 230);
+}
+
+.signin__forgot {
+    margin-top: 10px;
+    color: #e0dbdb;
+}
+
+.signin__forgot a {
+    color: #5f5959;
+}
+
+.signin__forgot a:hover {
+    color: #494545;
+    text-decoration:underline;
 }
