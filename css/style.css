@@ -136,6 +136,7 @@ label {
     border-radius: 5px;
     cursor: pointer;
     align-self: center;
+    text-align: center;
 }
 
 .button_login:hover {
