@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="signin">
+            <div class="signin__box"><span class="title">Форма регистрации</span>
+                <span class="error"></span>
+                <form class="form" method="get">
+                    <label for="login">Придумайте логин</label>
+                    <input type="text" name="login" id="login" maxlength="31">
+
+                    <label for="password">Придумайте пароль</label>
+                    <input type="text" name="password" id="password" maxlength="31">
+
+
+                    <label for="password_2">Повторите пароль</label>
+                    <input type="text" name="password_2" id="password_2" maxlength="31">
+                    
+                    <input type="submit" value="Войти" class="button_login">
+                </form>
+
+                <div class="block">
+                    <span class="signin__forgot"><a href="index.html">Уже регистрировались ранее?</a></span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <script src="js/register.js"></script>
+</body>
+</html>
+
+
+<!--- https://monsterspost.com/html5-css3-registration-forms/
+    https://freefrontend.com/css-login-forms/page/1/
+    https://www.internet-technologies.ru/articles/60-besplatnyh-html5-i-css3-form-avtorizacii-dlya-sayta.html
+-->
