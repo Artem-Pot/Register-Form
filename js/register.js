@@ -2,13 +2,12 @@ const error = document.querySelector('.error');
 const login = document.querySelector('#login');
 const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password_2');
-const checkbox = document.querySelector('#checkbox');
 const buttonLogin = document.querySelector('.button_login');
 
 //Проверка ввода логина
 //проверка поля ввода логина в реальном времени
 login.addEventListener('input', function() {
-    if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
+    if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
         login.style.border = '2px solid red';
         error.style.display = 'block';
         error.textContent = 'Недопустимый символ';
@@ -188,7 +187,7 @@ function passwordСheckRepeat() {
     }
 }
 
-//функция сравнения пароля и повтора пароля
+// функция сравнения пароля и повтора пароля
 function comparePasswords() {
     if (password.value !== passwordRepeat.value) {
         passwordRepeat.style.border = '2px solid red';
@@ -212,7 +211,6 @@ passwordRepeat.addEventListener('input', function() {
         error.style.display = 'block';
         error.textContent = 'Логин и пароль не должны совпадать';
         console.log(`Логин и пароль не должны совпадать`);
-        event.preventDefault(); 
     }
         else {
         password.style.border = '';
@@ -220,7 +218,7 @@ passwordRepeat.addEventListener('input', function() {
     }
 })
 
-// функция проверки не совпадения пароля и логина
+// функция проверки не совпадения пароля и логина после нажатия на кнопку
 function comparisonLoginPassword (){
     if (login.value === password.value) {
         password.style.border = '2px solid red';
@@ -240,9 +238,14 @@ buttonLogin.onclick = function() {
     comparisonLoginPassword ();
 }
 
+
+//попробовать ловить ошибки через дебаггер
 //Как минимум одна цифра для пароля
+//добавить какой именно символ недопустим в логине и пароле
 //сделать функцию показа пароля или его скрытие
+//добавить показ ошибок в виде всплывающих сообщений сбоку с плавным исчезновением через некоторе время, иначе показывает только последнюю ошибку
 //хеширование пароля с помощью md5, SHA-1/SHA-256
 //сделать отправку потом через пост
 
-//устранить проблемы при тестировании: - Если ввести недопустимый символ в логине, и нажать войти то потом не будет выведена ошибка, но будет подсвечена рамка
+//устранить проблемы при тестировании: - Если ввести недопустимый символ или меньше 6 символов в логине, и нажать войти то потом не будет выведена ошибка, но будет подсвечена рамка (изменить последовательность)
+
