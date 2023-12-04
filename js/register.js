@@ -4,19 +4,21 @@ const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password_2');
 const buttonLogin = document.querySelector('.button_login');
 
+function errorPattern(entryField, errorText) {
+    entryField.style.border = '2px solid red';
+    error.style.display = 'block';
+    error.textContent = errorText;
+}
+
 //Проверка ввода логина
 //проверка поля ввода логина в реальном времени
 login.addEventListener('input', function() {
     if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
-        login.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Недопустимый символ';
+        errorPattern(login, 'Недопустимый символ');
         console.log(`Недопустимый символ логина`);
     }
     else if (login.value.length > 30) {
-        login.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина больше 30 символов';
+        errorPattern(login, 'Длина больше 30 символов');
         console.log(`Длина больше 30 символов логина`);
     }
     else {
@@ -28,33 +30,25 @@ login.addEventListener('input', function() {
 //проверка поля логина после нажатия на кнопку
 function loginСheck() {
     if (login.value === '') {
-        login.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Поле не должно быть пустым';
+        errorPattern(login, 'Поле не должно быть пустым');
         event.preventDefault(); 
         console.log(`Поле логина не должно быть пустым`);
     }
     else if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
-        login.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Недопустимый символ';
-        console.log(`Недопустимый символ логина`);
+        errorPattern(login, 'Недопустимый символ');
         event.preventDefault(); 
+        console.log(`Недопустимый символ логина`);
     }
     else if (login.value.length < 6) {
-        login.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина меньше 6 символов';
-        console.log(`Длина меньше 6 символов логина`);
+        errorPattern(login, 'Длина меньше 6 символов');
         event.preventDefault(); 
+        console.log(`Длина меньше 6 символов логина`);
     }
 
     else if (login.value.length > 30) {
-        login.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина больше 30 символов';
-        console.log(`Длина больше 30 символов логина`);
+        errorPattern(login, 'Длина больше 30 символов');
         event.preventDefault(); 
+        console.log(`Длина больше 30 символов логина`);
     }
 }
 
@@ -62,17 +56,13 @@ function loginСheck() {
 //проверка поля ввода пароля в реальном времени
 password.addEventListener('input', function() {
     if (password.value.length > 30) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина больше 30 символов';
+        errorPattern(password, 'Длина больше 30 символов');
         console.log(`Длина больше 30 символов пароля`);
     }
     else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Недопустимый символ';
-        console.log(`Недопустимый символ пароля`);
+        errorPattern(password, 'Недопустимый символ');
         event.preventDefault(); 
+        console.log(`Недопустимый символ пароля`);
     }
     else {
         password.style.border = '';
@@ -83,46 +73,34 @@ password.addEventListener('input', function() {
 //проверка поля ввода пароля после нажатия кнопки
 function passwordСheck() {
     if (password.value === '') {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Поле не должно быть пустым';
+        errorPattern(password, 'Поле не должно быть пустым');
         event.preventDefault(); 
         console.log(`Пароль не должен быть пустым`);
     }
     else if (password.value.length < 6) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина меньше 6 символов';
+        errorPattern(password, 'Длина меньше 6 символов');
         event.preventDefault(); 
         console.log(`Длина пароля меньше 6 символов`);
     }
     else if (password.value.length > 30) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина больше 30 символов';
+        errorPattern(password, 'Длина больше 30 символов');
         event.preventDefault();
         console.log(`Длина пароля больше 30 символов`); 
     }
     else if (password.value === password.value.toLowerCase()) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Пароль должен содержать минимум одну заглавную букву';
+        errorPattern(password, 'Пароль должен содержать минимум одну заглавную букву');
         event.preventDefault(); 
         console.log(`Пароль должен содержать минимум одну заглавную букву`);
     }
     else if (password.value === password.value.toUpperCase()) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Пароль должен содержать минимум одну строчную букву';
+        errorPattern(password, 'Пароль должен содержать минимум одну строчную букву');
         event.preventDefault(); 
         console.log(`Пароль должен содержать минимум одну строчную букву`);
     }
     else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Недопустимый символ';
-        console.log(`Недопустимый символ пароля`);
+        errorPattern(password, 'Недопустимый символ');
         event.preventDefault(); 
+        console.log(`Недопустимый символ пароля`);
     }
 }
 
@@ -130,17 +108,13 @@ function passwordСheck() {
 // проверка поля повтора пароля в реальном времени
 passwordRepeat.addEventListener('input', function() {
     if (passwordRepeat.value.length > 30) {
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина больше 30 символов';
+        errorPattern(passwordRepeat, 'Длина больше 30 символов');
         console.log(`Длина больше 30 символов повтора пароля`);
     }
     else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Недопустимый символ';
-        console.log(`Недопустимый символ пароля`);
+        errorPattern(passwordRepeat, 'Недопустимый символ');
         event.preventDefault(); 
+        console.log(`Недопустимый символ повтора пароля`);
     }
 
     else {
@@ -152,43 +126,33 @@ passwordRepeat.addEventListener('input', function() {
 //проверка поля повтора пароля после нажатия кнопки
 function passwordСheckRepeat() {
     if (passwordRepeat.value === '') {
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Поле не должно быть пустым';
-        console.log(`Поле не должно быть пустым повтора пароля`);
+        errorPattern(passwordRepeat, 'Поле не должно быть пустым');
         event.preventDefault(); 
+        console.log(`Поле не должно быть пустым повтора пароля`);
     }
     else if (passwordRepeat.value.length < 6) {
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина меньше 6 символов';
-        console.log(`Длина меньше 6 символов повтора пароля`);
+        errorPattern(passwordRepeat, 'Длина меньше 6 символов');
         event.preventDefault(); 
+        console.log(`Длина меньше 6 символов повтора пароля`);
     }
     else if (passwordRepeat.value.length > 30) {
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Длина больше 30 символов';
-        console.log(`Длина больше 30 символов повтора пароля`);
+        errorPattern(passwordRepeat, 'Длина больше 30 символов');
         event.preventDefault(); 
+        console.log(`Длина больше 30 символов повтора пароля`);
     }
     else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Недопустимый символ';
-        console.log(`Недопустимый символ пароля`);
+        errorPattern(passwordRepeat, 'Недопустимый символ');
         event.preventDefault(); 
+        console.log(`Недопустимый символ повтора пароля`);
     }
 }
 
 // функция сравнения пароля и повтора пароля
 function comparePasswords() {
     if (password.value !== passwordRepeat.value) {
-        passwordRepeat.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Пароли не совпадают';
-        console.log(`Пароли не совпадают`);
+        errorPattern(passwordRepeat, 'Пароли не совпадают');
         event.preventDefault(); 
+        console.log(`Пароли не совпадают`);
     }
 }
 
@@ -196,9 +160,7 @@ function comparePasswords() {
 //функция проверки не совпадения пароля и логина в режиме реального времени
 passwordRepeat.addEventListener('input', function() {
     if (login.value === password.value) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Логин и пароль не должны совпадать';
+        errorPattern(password, 'Логин и пароль не должны совпадать');
         console.log(`Логин и пароль не должны совпадать`);
     }
         else {
@@ -210,11 +172,9 @@ passwordRepeat.addEventListener('input', function() {
 // функция проверки не совпадения пароля и логина после нажатия на кнопку
 function comparisonLoginPassword (){
     if (login.value === password.value) {
-        password.style.border = '2px solid red';
-        error.style.display = 'block';
-        error.textContent = 'Логин и пароль не должны совпадать';
-        console.log(`Логин и пароль не должны совпадать`);
+        errorPattern(password, 'Логин и пароль не должны совпадать');
         event.preventDefault(); 
+        console.log(`Логин и пароль не должны совпадать`);
     }
 }
 
