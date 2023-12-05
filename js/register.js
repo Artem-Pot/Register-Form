@@ -52,8 +52,8 @@ function loginСheck() {
     }
 }
 
-//Проверка ввода пароля
-//проверка поля ввода пароля в реальном времени
+// //Проверка ввода пароля
+// //проверка поля ввода пароля в реальном времени
 password.addEventListener('input', function() {
     if (password.value.length > 30) {
         errorPattern(password, 'Длина больше 30 символов');
@@ -70,7 +70,7 @@ password.addEventListener('input', function() {
     }
 })
 
-//проверка поля ввода пароля после нажатия кнопки
+// //проверка поля ввода пароля после нажатия кнопки
 function passwordСheck() {
     if (password.value === '') {
         errorPattern(password, 'Поле не должно быть пустым');
@@ -102,10 +102,15 @@ function passwordСheck() {
         event.preventDefault(); 
         console.log(`Недопустимый символ пароля`);
     }
+    if(password.value === password.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) {
+        errorPattern(password, 'Необходима как минимум 1 цифра в пароле');
+        event.preventDefault(); 
+        console.log(`Необходима как минимум 1 цифра в пароле`);
+    }
 }
 
-// Повтор ввода пароля
-// проверка поля повтора пароля в реальном времени
+// // Повтор ввода пароля
+// // проверка поля повтора пароля в реальном времени
 passwordRepeat.addEventListener('input', function() {
     if (passwordRepeat.value.length > 30) {
         errorPattern(passwordRepeat, 'Длина больше 30 символов');
@@ -123,7 +128,7 @@ passwordRepeat.addEventListener('input', function() {
     }
 })
 
-//проверка поля повтора пароля после нажатия кнопки
+// //проверка поля повтора пароля после нажатия кнопки
 function passwordСheckRepeat() {
     if (passwordRepeat.value === '') {
         errorPattern(passwordRepeat, 'Поле не должно быть пустым');
@@ -145,9 +150,14 @@ function passwordСheckRepeat() {
         event.preventDefault(); 
         console.log(`Недопустимый символ повтора пароля`);
     }
+    if(passwordRepeat.value === passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) { //проверка на отсутствие цифр в пароле
+        errorPattern(passwordRepeat, 'Необходима как минимум 1 цифра в пароле');
+        event.preventDefault(); 
+        console.log(`Необходима как минимум 1 цифра в пароле`);
+    }
 }
 
-// функция сравнения пароля и повтора пароля
+// // функция сравнения пароля и повтора пароля
 function comparePasswords() {
     if (password.value !== passwordRepeat.value) {
         errorPattern(passwordRepeat, 'Пароли не совпадают');
@@ -156,8 +166,8 @@ function comparePasswords() {
     }
 }
 
-//проверка несовпадения пароля и логина
-//функция проверки не совпадения пароля и логина в режиме реального времени
+// //проверка несовпадения пароля и логина
+// //функция проверки не совпадения пароля и логина в режиме реального времени
 passwordRepeat.addEventListener('input', function() {
     if (login.value === password.value) {
         errorPattern(password, 'Логин и пароль не должны совпадать');
@@ -169,7 +179,7 @@ passwordRepeat.addEventListener('input', function() {
     }
 })
 
-// функция проверки не совпадения пароля и логина после нажатия на кнопку
+// // функция проверки не совпадения пароля и логина после нажатия на кнопку
 function comparisonLoginPassword (){
     if (login.value === password.value) {
         errorPattern(password, 'Логин и пароль не должны совпадать');
@@ -187,7 +197,6 @@ buttonLogin.onclick = function() {
     comparisonLoginPassword ();
 }
 
-//Как минимум одна цифра для пароля
 //добавить какой именно символ недопустим в логине и пароле
 //сделать функцию показа пароля или его скрытие
 //добавить показ ошибок в виде всплывающих сообщений сбоку с плавным исчезновением через некоторе время, иначе показывает только последнюю ошибку
