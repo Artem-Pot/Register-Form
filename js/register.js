@@ -12,14 +12,14 @@ function errorPattern(entryField, errorText) {
 
 
 //вывод недопустимого символа в поле ввода
-let inputСharacter;
+let inputСharacter = [];
+
 function characterСheck(field){
-    inputСharacter = field.value.slice(-1);
-    for (let i = 0; i < field.value.length; i++) {
-        if (field.value[i] !== field.value.replace(/[^а-яА-Яa-zA-Z0-9-_]/g, '')) {
-            inputСharacter = field.value[i];
-        }
-        else return;
+    for (let i = 0; i < field.value.length; i++) { // проходит по каждому символу поля ввода
+            if (field.value[i] !== field.value[i].replace(/[^а-яА-Яa-zA-Z0-9-_]/g, '')) { //проверка если есть недопустимый символ
+                inputСharacter.push(field.value[i]);
+
+            }
     }
 }
 
