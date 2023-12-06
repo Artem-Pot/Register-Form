@@ -90,7 +90,6 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    position: relative;
 }
 
 .signin__title {
@@ -104,24 +103,31 @@ body {
     gap: 5px;
 }
 
+.form__box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 90px;
+}
+
 label {
    
 }
 
-#login, #password, #password_2  {
+#login, #password, #password_repeat  {
     padding: 10px;
     width: 250px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 5px;    
 }
 
-.error {
-    font-size: 20px;
-    display: none;
-    position: absolute;
+.error_login, .error_password, .error_passwordRep{
+    font-size: 14px;
+    /* display: none; */
     top: 25px;
     font-weight: 600;
     color: red;
+    
 }
 
 
