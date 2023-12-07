@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus, :active {
+    outline: none;
+}
+a:focus, a:active {
+    outline: none;
+}
+nav, footer, header, aside {
+    display: block;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 1;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input, button, textarea {
+    font-family:inherit;
+}
+input::-ms-clear {
+    display: none;
+}
+button {
+    cursor: pointer;
+    background: none;
+}
+button::-moz-focus-inner {
+    padding:0;border:0;
+}
+a, a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+ul li {
+    list-style: none;
+}
+img { 
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size:inherit;
+    font-weight: 400;
+}
+
+/*-----*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #494545;
+    background-color: #fff;
+
+}
+
+.signin {
+    background-color: #e0dbdb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.signin__box {
+    padding: 20px;
+    width: 400px;
+    max-height: 700px;
+    height: 100%;
+    background-color: rgb(197, 191, 191);
+    border-radius: 5px;
+    box-shadow: -16px 17px 8px -12px rgba(34, 60, 80, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.signin__title {
+    font-size: 20px;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form__box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 90px;
+}
+
+#surname, #name, #patronymic  {
+    padding: 10px;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;    
+}
+
+.button_next {
+    margin-top: 20px;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    text-align: center;
+}
+
+.button_next:hover {
+    background-color: rgb(60, 120, 230);
+}
+
+.signin__forgot {
+    margin-top: 10px;
+    color: #e0dbdb;
+}
+
+.signin__forgot a {
+    color: #5f5959;
+}
+
+.signin__forgot a:hover {
+    color: #494545;
+    text-decoration:underline;
+}
