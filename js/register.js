@@ -106,7 +106,7 @@ function passwordСheck() {
         console.log(`Недопустимый символ пароля`);
     }
     if(password.value === password.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) {
-        errorPattern(password, errorPassword, 'Необходима как минимум 1 цифра в пароле');
+        errorPattern(password, errorPassword, 'Необходима как минимум 1 цифра');
         event.preventDefault(); 
         console.log(`Необходима как минимум 1 цифра в пароле`);
     }
@@ -154,7 +154,7 @@ function passwordСheckRepeat() {
         console.log(`Недопустимый символ повтора пароля`);
     }
     if(passwordRepeat.value === passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) { //проверка на отсутствие цифр в пароле
-        errorPattern(passwordRepeat, errorPasswordRep, 'Необходима как минимум 1 цифра в пароле');
+        errorPattern(passwordRepeat, errorPasswordRep, 'Необходима как минимум 1 цифра');
         event.preventDefault(); 
         console.log(`Необходима как минимум 1 цифра в пароле`);
     }
@@ -163,7 +163,7 @@ function passwordСheckRepeat() {
 // // // функция сравнения пароля и повтора пароля
 function comparePasswords() {
     if (password.value !== passwordRepeat.value) {
-        errorPattern(passwordRepeat, 'Пароли не совпадают');
+        errorPattern(passwordRepeat, errorPasswordRep,'Пароли не совпадают');
         event.preventDefault(); 
         console.log(`Пароли не совпадают`);
     }
@@ -173,22 +173,45 @@ function comparePasswords() {
 // // //функция проверки не совпадения пароля и логина в режиме реального времени
 passwordRepeat.addEventListener('input', function() {
     if (login.value === password.value) {
-        errorPattern(password, errorPasswordRep,'Логин и пароль не должны совпадать');
+        errorPattern(password, errorPassword,'Логин и пароль не должны совпадать');
         console.log(`Логин и пароль не должны совпадать`);
     }
         else {
-        password.style.border = '';
-        error.style.display = 'none';
+        errorPassword.style.border = '';
+        errorPassword.style.display = 'none';
     }
 })
 
 // // // функция проверки не совпадения пароля и логина после нажатия на кнопку
 function comparisonLoginPassword (){
     if (login.value === password.value) {
-        errorPattern(password, errorPasswordRep, 'Логин и пароль не должны совпадать');
+        errorPattern(password, errorPassword, 'Логин и пароль не должны совпадать');
         event.preventDefault(); 
         console.log(`Логин и пароль не должны совпадать`);
     }
+}
+
+//функция скрытия и показа пароля в поле пароля
+function showHidepassword(target){
+	if (password.getAttribute('type') === 'password') {
+		target.classList.add('view');
+		password.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		password.setAttribute('type', 'password');
+	}
+	return false;
+}
+
+function showHidepasswordRep(target){
+	if (passwordRepeat.getAttribute('type') === 'password') {
+		target.classList.add('view');
+		passwordRepeat.setAttribute('type', 'text');
+	} else {
+		target.classList.remove('view');
+		passwordRepeat.setAttribute('type', 'password');
+	}
+	return false;
 }
 
 //проверка всех полей ввода после нажатия на кнопку
@@ -199,6 +222,7 @@ buttonLogin.onclick = function() {
     comparePasswords();
     comparisonLoginPassword ();
 }
+
 
 //сделать функцию показа пароля или его скрытие
 //добавить показ ошибок в виде всплывающих сообщений сбоку с плавным исчезновением через некоторе время, иначе показывает только последнюю ошибку

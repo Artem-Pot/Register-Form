@@ -103,15 +103,15 @@ body {
     gap: 5px;
 }
 
-.form__box {
+.form__box, .form__box_password {
     display: flex;
     flex-direction: column;
     gap: 5px;
     height: 90px;
 }
 
-label {
-   
+.form__box_password {
+    position: relative;
 }
 
 #login, #password, #password_repeat  {
@@ -121,18 +121,29 @@ label {
     border-radius: 5px;    
 }
 
+#password, #password_repeat  {
+    padding-right: 35px;
+}
+
+.password-control {
+    position: absolute;
+    top: 36px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: url(../img/view.svg) 0 0 no-repeat;
+}
+
+.view {
+    background: url(../img/no-view.svg) 0 0 no-repeat;
+}
+
 .error_login, .error_password, .error_passwordRep{
-    font-size: 14px;
+    font-size: 12px;
     /* display: none; */
     top: 25px;
     font-weight: 600;
     color: red;
-    
-}
-
-
-.block {
-
 }
 
 .button_login {
