@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма регистрации - Шаг 2</title>
+    <link rel="stylesheet" href="css/step2.css">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="signin">
+            <div class="signin__box"><span class="title">Форма регистрации / шаг 2</span>
+                <form class="form" method="get">
+
+                    <div class="form__box">
+                        <label for="country">Страна проживания</label>
+                        <input type="text" name="country" id="country" maxlength="101" value="Россия" placeholder="Россия">
+                        <span class="error error_country"></span>
+                    </div>
+
+                    <div class="form__box">
+                        <label for="city">Город проживания</label>
+                        <input type="text" name="city" id="city" maxlength="101" value="Москва" placeholder="Москва">
+                        <span class="error error_city"></span>
+                    </div>
+
+                    <span> Пол:</span>
+                    <div class="form__box_gender">
+                        <label for="male">Мужской</label>
+                        <input type="checkbox" name="male" id="male">
+                    </div>
+
+                    <div class="form__box_gender">
+                        <label for="female">Женский</label>
+                        <input type="checkbox" name="female" id="female">
+                    </div>
+
+                    <textarea placeholder="">
+
+                    </textarea>
+                    
+                    <input type="button" value="Далее" class="button_next">
+                </form>
+
+                <div class="block">
+                    <span class="signin__forgot"><a href="index.html">Уже регистрировались ранее?</a></span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <script src="js/step2.js"></script>
+</body>
+</html>

@@ -7,6 +7,7 @@ const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password_repeat');
 const buttonLogin = document.querySelector('.button_login');
 
+//шаблон вывода ошибки
 function errorPattern(entryField, errorInput, errorText) {
     entryField.style.border = '2px solid red';
     errorInput.style.display = 'block';
@@ -16,7 +17,7 @@ function errorPattern(entryField, errorInput, errorText) {
 //Проверка ввода логина
 //проверка поля ввода логина в реальном времени
 login.addEventListener('input', function() {
-    if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_]/g, '')){ // проверка что в логине нет недопустимых символов
+    if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, '')){ // проверка что в логине нет недопустимых символов
         errorPattern(login, errorLogin,`Недопустимый символ `);
         console.log(`Недопустимый символ логина`);
     }
@@ -37,7 +38,7 @@ function loginСheck() {
         event.preventDefault(); 
         console.log(`Поле логина не должно быть пустым`);
     }
-    else if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(login, errorLogin, 'Недопустимый символ');
         event.preventDefault(); 
         console.log(`Недопустимый символ логина`);
@@ -62,7 +63,7 @@ password.addEventListener('input', function() {
         errorPattern(password, errorPassword, 'Длина больше 30 символов');
         console.log(`Длина больше 30 символов пароля`);
     }
-    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(password, errorPassword, 'Недопустимый символ');
         event.preventDefault(); 
         console.log(`Недопустимый символ пароля`);
@@ -100,7 +101,7 @@ function passwordСheck() {
         event.preventDefault(); 
         console.log(`Пароль должен содержать минимум одну строчную букву`);
     }
-    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(password, errorPassword, 'Недопустимый символ');
         event.preventDefault(); 
         console.log(`Недопустимый символ пароля`);
@@ -119,7 +120,7 @@ passwordRepeat.addEventListener('input', function() {
         errorPattern(passwordRepeat, errorPasswordRep, 'Длина больше 30 символов');
         console.log(`Длина больше 30 символов повтора пароля`);
     }
-    else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(passwordRepeat, errorPasswordRep, 'Недопустимый символ');
         event.preventDefault(); 
         console.log(`Недопустимый символ повтора пароля`);
@@ -148,12 +149,12 @@ function passwordСheckRepeat() {
         event.preventDefault(); 
         console.log(`Длина больше 30 символов повтора пароля`);
     }
-    else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(passwordRepeat, errorPasswordRep, 'Недопустимый символ');
         event.preventDefault(); 
         console.log(`Недопустимый символ повтора пароля`);
     }
-    if(passwordRepeat.value === passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) { //проверка на отсутствие цифр в пароле
+    else if(passwordRepeat.value === passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-ZЁё]/g, "")) { //проверка на отсутствие цифр в пароле
         errorPattern(passwordRepeat, errorPasswordRep, 'Необходима как минимум 1 цифра');
         event.preventDefault(); 
         console.log(`Необходима как минимум 1 цифра в пароле`);
