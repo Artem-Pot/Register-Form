@@ -1,14 +1,12 @@
 const errorSurname = document.querySelector('.error_surname');
 const errorName = document.querySelector('.error_name');
 const errorPatronymic = document.querySelector('.error_patronymic');
-const errorDate = document.querySelector('.error_date');
 const errorEmail = document.querySelector('.error_email');
 const errorTelephone = document.querySelector('.error_telephone');
 
 const surname = document.querySelector('#surname');
 const name = document.querySelector('#name');
 const patronymic = document.querySelector('#patronymic');
-const date = document.querySelector('#date');
 const email = document.querySelector('#email');
 const telephone = document.querySelector('#telephone');
 
@@ -38,7 +36,7 @@ surname.addEventListener('input', function() {
 })
 
 //проверка поля фамилии после нажатия на кнопку next
-function errorSurnameСheck() {
+function surnameСheck() {
     if (surname.value === '') {
         errorPattern(surname, errorSurname, 'Поле не должно быть пустым');
         event.preventDefault(); 
@@ -111,7 +109,7 @@ patronymic.addEventListener('input', function() {
 })
 
 // //проверка поля отчества после нажатия на кнопку next
-function errorPatronymicСheck() {
+function patronymicСheck() {
     if (patronymic.value !== patronymic.value.replace(/[^а-яА-Яa-zA-ZЁё]/g, "")){
         errorPattern(patronymic, errorPatronymic, 'Недопустимый символ');
         event.preventDefault(); 
@@ -225,9 +223,9 @@ function telephoneСheck() {
 }
 
 buttonNext.onclick = function() {
-    errorSurnameСheck();
+    surnameСheck();
     nameСheck();
-    errorPatronymicСheck();
+    patronymicСheck();
     emailСheck();
     telephoneСheck();
 }

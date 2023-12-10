@@ -80,7 +80,7 @@ body {
 .signin__box {
     padding: 20px;
     width: 400px;
-    max-height: 750px;
+    max-height: 650px;
     height: 100%;
     background-color: rgb(197, 191, 191);
     border-radius: 5px;
@@ -110,7 +110,7 @@ body {
     height: 90px;
 }
 
-#surname, #name, #patronymic, #date, #email, #telephone  {
+#country, #city, #date {
     padding: 10px;
     width: 250px;
     height: 40px;
@@ -145,10 +145,16 @@ body {
     text-decoration:underline;
 }
 
-.error_surname, .error_name, .error_patronymic, .error_date, .error_email, .error_telephone {
+.error_country, .error_city, .error_date {
     font-size: 12px;
     /* display: none; */
     top: 25px;
     font-weight: 600;
     color: red;
+}
+
+#comment {
+    width: 250px;
+    height: 90px;
+    resize: none;
 }

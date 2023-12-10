@@ -24,20 +24,35 @@
                         <span class="error error_city"></span>
                     </div>
 
-                    <span> Пол:</span>
-                    <div class="form__box_gender">
-                        <label for="male">Мужской</label>
-                        <input type="checkbox" name="male" id="male">
+                    <div class="form__box">
+                        <label for="date">Дата рождения</label>
+                        <input type="date" name="date" id="date" value="1987-04-25">
+                        <span class="error error_date"></span>
                     </div>
 
-                    <div class="form__box_gender">
-                        <label for="female">Женский</label>
-                        <input type="checkbox" name="female" id="female">
+                    
+                    <div class="form__box"><span>Пол</span>
+                        <div class="form__box_radio">
+                            <input type="radio" name="gender" id="male" checked>
+                            <label for="male">Мужской</label>
+                        </div>
+    
+                        <div class="form__box_radio">
+                            <input type="radio" name="gender" id="female">
+                            <label for="female">Женский</label>
+                        </div>
                     </div>
 
-                    <textarea placeholder="">
 
-                    </textarea>
+                    <div class="form__box">
+                        <label for="comment">Комментарий</label>
+                        <textarea name="comment" id="comment" placeholder="Текст комментария" maxlength="501">
+                        </textarea>
+                    </div>
+
+
+
+
                     
                     <input type="button" value="Далее" class="button_next">
                 </form>
