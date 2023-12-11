@@ -14,7 +14,7 @@
 
                     <div class="form__box">
                         <label for="country">Страна проживания</label>
-                        <input type="text" name="country" id="country" maxlength="101" value="Россия" placeholder="Россия">
+                        <input type="text" name="country" id="country" maxlength="61" value="Россия" placeholder="Россия">
                         <span class="error error_country"></span>
                     </div>
 
@@ -26,10 +26,9 @@
 
                     <div class="form__box">
                         <label for="date">Дата рождения</label>
-                        <input type="date" name="date" id="date" value="1987-04-25">
+                        <input type="date" name="date" id="date" value="1970-01-01">
                         <span class="error error_date"></span>
                     </div>
-
                     
                     <div class="form__box"><span>Пол</span>
                         <div class="form__box_radio">
@@ -43,15 +42,11 @@
                         </div>
                     </div>
 
-
                     <div class="form__box">
                         <label for="comment">Комментарий</label>
-                        <textarea name="comment" id="comment" placeholder="Текст комментария" maxlength="501">
-                        </textarea>
+                        <textarea name="comment" id="comment" placeholder="Текст комментария" maxlength="501"></textarea>
+                        <span class="error error_comment"></span>
                     </div>
-
-
-
 
                     
                     <input type="button" value="Далее" class="button_next">
