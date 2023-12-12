@@ -1,11 +1,13 @@
 const errorLogin = document.querySelector('.error_login');
 const errorPassword = document.querySelector('.error_password');
 const errorPasswordRep = document.querySelector('.error_passwordRep');
+const errorData = document.querySelector('.error_data');
 
 const login = document.querySelector('#login');
 const password = document.querySelector('#password');
 const passwordRepeat = document.querySelector('#password_repeat');
 const buttonLogin = document.querySelector('.button_login');
+const data = document.querySelector('#data');
 
 //шаблон вывода ошибки
 function errorPattern(entryField, errorInput, errorText) {
@@ -19,11 +21,9 @@ function errorPattern(entryField, errorInput, errorText) {
 login.addEventListener('input', function() {
     if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, '')){ // проверка что в логине нет недопустимых символов
         errorPattern(login, errorLogin,`Недопустимый символ `);
-        console.log(`Недопустимый символ логина`);
     }
     else if (login.value.length > 30) {
         errorPattern(login, errorLogin,'Длина больше 30 символов');
-        console.log(`Длина больше 30 символов логина`);
     }
     else {
         login.style.border = '';
@@ -36,37 +36,31 @@ function loginСheck() {
     if (login.value === '') {
         errorPattern(login, errorLogin, 'Поле не должно быть пустым');
         event.preventDefault(); 
-        console.log(`Поле логина не должно быть пустым`);
     }
     else if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(login, errorLogin, 'Недопустимый символ');
         event.preventDefault(); 
-        console.log(`Недопустимый символ логина`);
     }
     else if (login.value.length < 6) {
         errorPattern(login, errorLogin,'Длина меньше 6 символов');
         event.preventDefault(); 
-        console.log(`Длина меньше 6 символов логина`);
     }
 
     else if (login.value.length > 30) {
         errorPattern(login, errorLogin, 'Длина больше 30 символов');
         event.preventDefault(); 
-        console.log(`Длина больше 30 символов логина`);
     }
 }
 
-// //Проверка ввода пароля
-// //проверка поля ввода пароля в реальном времени
+//Проверка ввода пароля
+//проверка поля ввода пароля в реальном времени
 password.addEventListener('input', function() {
     if (password.value.length > 30) {
         errorPattern(password, errorPassword, 'Длина больше 30 символов');
-        console.log(`Длина больше 30 символов пароля`);
     }
     else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(password, errorPassword, 'Недопустимый символ');
         event.preventDefault(); 
-        console.log(`Недопустимый символ пароля`);
     }
     else {
         password.style.border = '';
@@ -74,56 +68,47 @@ password.addEventListener('input', function() {
     }
 })
 
-// // //проверка поля ввода пароля после нажатия кнопки
+//проверка поля ввода пароля после нажатия кнопки
 function passwordСheck() {
     if (password.value === '') {
         errorPattern(password, errorPassword, 'Поле не должно быть пустым');
         event.preventDefault(); 
-        console.log(`Пароль не должен быть пустым`);
     }
     else if (password.value.length < 6) {
         errorPattern(password, errorPassword, 'Длина меньше 6 символов');
         event.preventDefault(); 
-        console.log(`Длина пароля меньше 6 символов`);
     }
     else if (password.value.length > 30) {
         errorPattern(password, errorPassword, 'Длина больше 30 символов');
         event.preventDefault();
-        console.log(`Длина пароля больше 30 символов`); 
     }
     else if (password.value === password.value.toLowerCase()) {
         errorPattern(password, errorPassword, 'Пароль должен содержать минимум одну заглавную букву');
         event.preventDefault(); 
-        console.log(`Пароль должен содержать минимум одну заглавную букву`);
     }
     else if (password.value === password.value.toUpperCase()) {
         errorPattern(password, errorPassword, 'Пароль должен содержать минимум одну строчную букву');
         event.preventDefault(); 
-        console.log(`Пароль должен содержать минимум одну строчную букву`);
     }
     else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(password, errorPassword, 'Недопустимый символ');
         event.preventDefault(); 
-        console.log(`Недопустимый символ пароля`);
     }
     if(password.value === password.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) {
         errorPattern(password, errorPassword, 'Необходима как минимум 1 цифра');
         event.preventDefault(); 
-        console.log(`Необходима как минимум 1 цифра в пароле`);
     }
 }
 
-// // // Повтор ввода пароля
-// // // проверка поля повтора пароля в реальном времени
+// Повтор ввода пароля
+// проверка поля повтора пароля в реальном времени
 passwordRepeat.addEventListener('input', function() {
     if (passwordRepeat.value.length > 30) {
         errorPattern(passwordRepeat, errorPasswordRep, 'Длина больше 30 символов');
-        console.log(`Длина больше 30 символов повтора пароля`);
     }
     else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(passwordRepeat, errorPasswordRep, 'Недопустимый символ');
         event.preventDefault(); 
-        console.log(`Недопустимый символ повтора пароля`);
     }
 
     else {
@@ -132,46 +117,40 @@ passwordRepeat.addEventListener('input', function() {
     }
 })
 
-// // //проверка поля повтора пароля после нажатия кнопки
-function passwordСheckRepeat() {
+// проверка поля повтора пароля после нажатия кнопки
+function passwordRepeatСheck() {
     if (passwordRepeat.value === '') {
         errorPattern(passwordRepeat, errorPasswordRep, 'Поле не должно быть пустым');
         event.preventDefault(); 
-        console.log(`Поле не должно быть пустым повтора пароля`);
     }
     else if (passwordRepeat.value.length < 6) {
         errorPattern(passwordRepeat, errorPasswordRep, 'Длина меньше 6 символов');
         event.preventDefault(); 
-        console.log(`Длина меньше 6 символов повтора пароля`);
     }
     else if (passwordRepeat.value.length > 30) {
         errorPattern(passwordRepeat, errorPasswordRep, 'Длина больше 30 символов');
         event.preventDefault(); 
-        console.log(`Длина больше 30 символов повтора пароля`);
     }
     else if (passwordRepeat.value !== passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
         errorPattern(passwordRepeat, errorPasswordRep, 'Недопустимый символ');
         event.preventDefault(); 
-        console.log(`Недопустимый символ повтора пароля`);
     }
     else if(passwordRepeat.value === passwordRepeat.value.trim().replace(/[^а-яА-Яa-zA-ZЁё]/g, "")) { //проверка на отсутствие цифр в пароле
         errorPattern(passwordRepeat, errorPasswordRep, 'Необходима как минимум 1 цифра');
         event.preventDefault(); 
-        console.log(`Необходима как минимум 1 цифра в пароле`);
     }
 }
 
-// // // функция сравнения пароля и повтора пароля
+//функция сравнения пароля и повтора пароля
 function comparePasswords() {
     if (password.value !== passwordRepeat.value) {
         errorPattern(passwordRepeat, errorPasswordRep,'Пароли не совпадают');
         event.preventDefault(); 
-        console.log(`Пароли не совпадают`);
     }
 }
 
-// // //проверка несовпадения пароля и логина
-// // //функция проверки не совпадения пароля и логина в режиме реального времени
+//проверка несовпадения пароля и логина
+//функция проверки не совпадения пароля и логина в режиме реального времени
 passwordRepeat.addEventListener('input', function() {
     if (login.value === password.value) {
         errorPattern(password, errorPassword,'Логин и пароль не должны совпадать');
@@ -183,12 +162,11 @@ passwordRepeat.addEventListener('input', function() {
     }
 })
 
-// // // функция проверки не совпадения пароля и логина после нажатия на кнопку
+// функция проверки не совпадения пароля и логина после нажатия на кнопку
 function comparisonLoginPassword (){
     if (login.value === password.value) {
         errorPattern(password, errorPassword, 'Логин и пароль не должны совпадать');
         event.preventDefault(); 
-        console.log(`Логин и пароль не должны совпадать`);
     }
 }
 
@@ -215,21 +193,45 @@ function showHidepasswordRep(target){
 	return false;
 }
 
+//проверка чекбокса
+function dataCheck(){
+    if(data.checked) {
+        console.log('чек нажат');
+        return true;
+    }
+    else {
+        event.preventDefault(); 
+        console.log('чек не нажат');
+        errorPattern(data, errorData, 'Необходимо дать своё согласие');
+    }
+}
+
+//скрипт вывода об удачной регистрации в модальном окне
+//Вы успешно зарегистрировались! и ссылки на продолжить с перенаправлением на страницу с авторизацией
+
+
+
+//скрипт перенаправления на главную страницу для авторизации на сайте.
+function redirection(){
+    if(login.value && password.value && passwordRepeat.value && data.checked) {
+        window.location.href = 'modal.html';
+    }
+}
 //проверка всех полей ввода после нажатия на кнопку
 buttonLogin.onclick = function() {
     loginСheck();
     passwordСheck();
-    passwordСheckRepeat();
+    passwordRepeatСheck();
     comparePasswords();
-    comparisonLoginPassword ();
+    comparisonLoginPassword();
+    dataCheck();
+    redirection();
 }
 
-//сделать многоуровневую регистрацию - шаг 1, шаг 2, шаг 3.
-//добавить остальные поля (фамилия, имя отчество, дата рождения, почта, телефон, , возраст, город проживания. чек - пол, политика соглашения)
+//добавить сообщение об удачной отправки на 2 секунды и перемещения на страницу авторизации
+
 // разбить на модули и каждый скрипт в отдельный файл
-//добавить сообщение об удачной отправки и перемещения на страницу авторизации
 //добавить сервер для принятия данных и авторизации
 //хеширование пароля с помощью md5, SHA-1/SHA-256
 //сделать отправку потом через пост
-//добавить какой именно символ недопустим в логине и пароле
 

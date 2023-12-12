@@ -188,6 +188,12 @@ function telephoneСheck() {
     }
     return telephone.value.trim().toLowerCase();
 }
+//перенаправление на следующих шаг
+function redirection(){
+    if(surname.value && name.value && email.value && telephone.value) {
+        window.location.href = 'step2.html';
+    }
+}
 
 buttonNext.onclick = function() {
     surnameСheck();
@@ -195,6 +201,7 @@ buttonNext.onclick = function() {
     patronymicСheck();
     emailСheck();
     telephoneСheck();
+    redirection();
 }
 
 // разбить на модули и каждый скрипт в отдельный файл

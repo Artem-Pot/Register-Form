@@ -125,7 +125,7 @@ comment.addEventListener('input', function() {
     }
 })
 
-//проверка поля города после нажатия на кнопку next
+//проверка поля комментарий после нажатия на кнопку next
 function commentСheck() {
     if (comment.textContent !== comment.textContent.replace(/[^а-яА-Яa-zA-ZЁё0-9\s!@"№#$;%:^&?*()/|,.'<>`~+-_[]\{}]/g, '')){
         errorPattern(comment, errorComment, 'Недопустимый символ');
@@ -137,6 +137,13 @@ function commentСheck() {
     }
     
 }
+//перенаправление на следующих шаг
+function redirection(){
+    if(country.value && city.value && date.value) {
+        window.location.href = 'step3.html';
+    }
+}
+
 
 buttonNext.onclick = function() {
     countryСheck();
@@ -144,8 +151,6 @@ buttonNext.onclick = function() {
     dateCheck();
     radiCheck();
     commentСheck();
+    redirection();
 }
 
-//Добавить проверку чтобы город и страна не начинались и не кончались "-"
-//добавить проверку радио кнопок
-//что делать дальше с
