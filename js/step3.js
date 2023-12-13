@@ -9,8 +9,6 @@ const passwordRepeat = document.querySelector('#password_repeat');
 const buttonLogin = document.querySelector('.button_login');
 const data = document.querySelector('#data');
 
-
-
 //шаблон вывода ошибки
 function errorPattern(entryField, errorInput, errorText) {
     entryField.style.border = '2px solid red';
@@ -18,10 +16,10 @@ function errorPattern(entryField, errorInput, errorText) {
     errorInput.textContent = errorText;
 }
 
-//Проверка ввода логина
+//--------------------------------
 //проверка поля ввода логина в реальном времени
 login.addEventListener('input', function() {
-    if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, '')){ // проверка что в логине нет недопустимых символов
+    if (login.value !== login.value.replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, '')){ 
         errorPattern(login, errorLogin,`Недопустимый символ `);
     }
     else if (login.value.length > 30) {
@@ -39,7 +37,7 @@ function loginСheck() {
         errorPattern(login, errorLogin, 'Поле не должно быть пустым');
         event.preventDefault(); 
     }
-    else if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){
         errorPattern(login, errorLogin, 'Недопустимый символ');
         event.preventDefault(); 
     }
@@ -55,13 +53,13 @@ function loginСheck() {
     localStorage.setItem(login, login.value);
 }
 
-//Проверка ввода пароля
+//----------------------------------------------------------------
 //проверка поля ввода пароля в реальном времени
 password.addEventListener('input', function() {
     if (password.value.length > 30) {
         errorPattern(password, errorPassword, 'Длина больше 30 символов');
     }
-    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ 
         errorPattern(password, errorPassword, 'Недопустимый символ');
         event.preventDefault(); 
     }
@@ -93,11 +91,11 @@ function passwordСheck() {
         errorPattern(password, errorPassword, 'Пароль должен содержать минимум одну строчную букву');
         event.preventDefault(); 
     }
-    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){ // проверка что в логине нет недопустимых символов
+    else if (password.value !== password.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_Ёё]/g, "")){
         errorPattern(password, errorPassword, 'Недопустимый символ');
         event.preventDefault(); 
     }
-    if(password.value === password.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) {
+    else if(password.value === password.value.trim().replace(/[^а-яА-Яa-zA-Z]/g, "")) {
         errorPattern(password, errorPassword, 'Необходима как минимум 1 цифра');
         event.preventDefault(); 
     }
@@ -208,12 +206,7 @@ function dataCheck(){
     }
 }
 
-//скрипт вывода об удачной регистрации в модальном окне
-//Вы успешно зарегистрировались! и ссылки на продолжить с перенаправлением на страницу с авторизацией
-
-
-
-//скрипт перенаправления на главную страницу для авторизации на сайте.
+//перенаправления на главную страницу для авторизации на сайте.
 function redirection(){
     if(login.value && password.value && passwordRepeat.value && data.checked) {
         window.location.href = 'modal.html';
@@ -229,11 +222,3 @@ buttonLogin.onclick = function() {
     dataCheck();
     redirection();
 }
-
-
-
-// разбить на модули и каждый скрипт в отдельный файл
-//добавить сервер для принятия данных и авторизации
-//хеширование пароля с помощью md5, SHA-1/SHA-256
-//сделать отправку потом через пост
-
