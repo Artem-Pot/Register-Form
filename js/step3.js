@@ -9,6 +9,8 @@ const passwordRepeat = document.querySelector('#password_repeat');
 const buttonLogin = document.querySelector('.button_login');
 const data = document.querySelector('#data');
 
+
+
 //шаблон вывода ошибки
 function errorPattern(entryField, errorInput, errorText) {
     entryField.style.border = '2px solid red';
@@ -50,6 +52,7 @@ function loginСheck() {
         errorPattern(login, errorLogin, 'Длина больше 30 символов');
         event.preventDefault(); 
     }
+    localStorage.setItem(login, login.value);
 }
 
 //Проверка ввода пароля
@@ -147,6 +150,7 @@ function comparePasswords() {
         errorPattern(passwordRepeat, errorPasswordRep,'Пароли не совпадают');
         event.preventDefault(); 
     }
+    localStorage.setItem(password, password.value);
 }
 
 //проверка несовпадения пароля и логина
@@ -196,12 +200,10 @@ function showHidepasswordRep(target){
 //проверка чекбокса
 function dataCheck(){
     if(data.checked) {
-        console.log('чек нажат');
         return true;
     }
     else {
         event.preventDefault(); 
-        console.log('чек не нажат');
         errorPattern(data, errorData, 'Необходимо дать своё согласие');
     }
 }
@@ -228,7 +230,7 @@ buttonLogin.onclick = function() {
     redirection();
 }
 
-//добавить сообщение об удачной отправки на 2 секунды и перемещения на страницу авторизации
+
 
 // разбить на модули и каждый скрипт в отдельный файл
 //добавить сервер для принятия данных и авторизации

@@ -52,6 +52,7 @@ function countryСheck() {
     else if (country.value.length < 3) {
         errorPattern(country, errorCountry,'Длина меньше 3 символов');
     }
+    localStorage.country = country.value;
 }
 
 //--------------------------------------------------------
@@ -86,6 +87,7 @@ function cityСheck() {
     else if (city.value.length < 3) {
         errorPattern(city, errorCity,'Длина меньше 3 символов');
     }
+    localStorage.city = city.value;
 }
 //----------------------------------------------------------------
 //проверка поля с датой
@@ -98,16 +100,17 @@ function dateCheck(){
         date.style.border = '';
         errorDate.style.display = 'none';
     }
+    localStorage.date = date.value;
 }
 
 //проверка радио кнопок
-function radiCheck(){
+function radioCheck(){
     if(male.checked) {
-        console.log('Выбрана кнопка: мужской пол');
+        localStorage.gender = 'мужской';
     }
     if(female.checked) {
-        console.log('Выбрана кнопка: женский пол');
-    } 
+        localStorage.gender = 'женский';
+    }
 }
 
 //----------------------------------------------------------------
@@ -135,7 +138,7 @@ function commentСheck() {
         errorPattern(comment, errorComment, 'Длина больше 500 символов');
         event.preventDefault(); 
     }
-    
+    localStorage.comment = comment.textContent;
 }
 //перенаправление на следующих шаг
 function redirection(){
@@ -144,12 +147,11 @@ function redirection(){
     }
 }
 
-
 buttonNext.onclick = function() {
     countryСheck();
     cityСheck();
     dateCheck();
-    radiCheck();
+    radioCheck();
     commentСheck();
     redirection();
 }

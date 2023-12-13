@@ -4,6 +4,8 @@ const password = document.querySelector('#password');
 const checkbox = document.querySelector('#checkbox');
 const buttonLogin = document.querySelector('.button_login');
 
+
+
 //проверка поля ввода логина в реальном времени
 login.addEventListener('input', function() {
     if (login.value !== login.value.trim().replace(/[^а-яА-Яa-zA-Z0-9-_]/g, "")){ // проверка что в логине нет недопустимых символов
@@ -101,9 +103,21 @@ buttonLogin.onclick = function() {
 }
 
 
+console.log(`
+surname:  ${localStorage.surname},
+name: ${localStorage.name},
+patronymic: ${localStorage.patronymic},
+email: ${localStorage.email},
+telephone: ${localStorage.telephone},
+country: ${localStorage.country}, 
+city: ${localStorage.city}, 
+date: ${localStorage.date},
+gender: ${localStorage.gender},
+comment: ${localStorage.comment},
+login: ${localStorage.login}, 
+password: ${localStorage.password}`);
+
+
 //сделать по аналогии как в шагах оформление с ошибками
-
-
-//добавить функнцию просмотра пароля при вводе
 //добавить капчу после 5 неправильных введений
 //сделать отправку потом через пост

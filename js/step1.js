@@ -47,7 +47,8 @@ function surnameСheck() {
         errorPattern(surname, errorSurname, 'Длина больше 100 символов');
         event.preventDefault(); 
     }
-    return surname.value.trim();
+    surname.value.trim();
+    localStorage.surname = surname.value;
 }
 //----------------------------------------------------------------
 //проверка поля ввода имени в реальном времени
@@ -78,7 +79,8 @@ function nameСheck() {
         errorPattern(name, errorName, 'Длина больше 100 символов');
         event.preventDefault(); 
     }
-    return name.value.trim();
+     name.value.trim();
+     localStorage.name = name.value;
 }
 
 //--------------------------------------------------------
@@ -106,7 +108,8 @@ function patronymicСheck() {
         errorPattern(patronymic, errorPatronymic, 'Длина больше 100 символов');
         event.preventDefault(); 
     }
-    return patronymic.value.trim();
+    patronymic.value.trim();
+    localStorage.patronymic = patronymic.value;
 }
 
 //----------------------------------------------------------------
@@ -147,7 +150,8 @@ function emailСheck() {
         errorPattern(email, errorEmail, 'Некорректный Email');
         event.preventDefault(); 
     }
-    return email.value.trim().toLowerCase();
+    email.value.trim().toLowerCase();
+    localStorage.email = email.value;
 }
 //----------------------------------------------------------------
 //проверка поля ввода телефона
@@ -186,7 +190,8 @@ function telephoneСheck() {
         errorPattern(telephone, errorTelephone, 'Некорректный телефон');
         event.preventDefault(); 
     }
-    return telephone.value.trim().toLowerCase();
+    telephone.value.trim().toLowerCase();
+    localStorage.telephone = telephone.value;
 }
 //перенаправление на следующих шаг
 function redirection(){
@@ -204,8 +209,6 @@ buttonNext.onclick = function() {
     redirection();
 }
 
-// разбить на модули и каждый скрипт в отдельный файл
-//добавить сообщение об удачной отправки и перемещения на страницу авторизации
 //добавить сервер для принятия данных и авторизации
 //хеширование пароля с помощью md5, SHA-1/SHA-256
 //сделать отправку потом через пост
