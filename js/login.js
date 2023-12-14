@@ -83,7 +83,7 @@ function passwordСheck() {
 }
 
 //функция скрытия и показа пароля в поле пароля
-function showHidepassword(target){
+function showHidePassword(target){
 	if (password.getAttribute('type') === 'password') {
 		target.classList.add('view');
 		password.setAttribute('type', 'text');
@@ -110,8 +110,8 @@ buttonLogin.onclick = function() {
     passwordСheck();
     redirection();
 }
-//добавить функцию просмотра пароля
-//добавить капчу после 5 неправильных введений
+
+//добавить сервер для принятия данных и авторизации + базу данных
 // разбить на модули и каждый скрипт в отдельный файл
-//добавить сервер для принятия данных и авторизации
 //хеширование пароля с помощью md5, SHA-1/SHA-256
+//добавить капчу после 5 неправильных введений

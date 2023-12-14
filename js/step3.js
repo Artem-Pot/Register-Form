@@ -173,7 +173,7 @@ function comparisonLoginPassword (){
 }
 
 //функция скрытия и показа пароля в поле пароля
-function showHidepassword(target){
+function showHidePassword(target){
 	if (password.getAttribute('type') === 'password') {
 		target.classList.add('view');
 		password.setAttribute('type', 'text');
@@ -184,7 +184,7 @@ function showHidepassword(target){
 	return false;
 }
 
-function showHidepasswordRep(target){
+function showHidePasswordRep(target){
 	if (passwordRepeat.getAttribute('type') === 'password') {
 		target.classList.add('view');
 		passwordRepeat.setAttribute('type', 'text');

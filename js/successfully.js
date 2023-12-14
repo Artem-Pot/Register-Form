@@ -1,17 +1,5 @@
 const list = document.querySelector('.list');
 
-
-
-// for (let i = 0; i < localStorage.length; i++) {
-//     console.log(localStorage[i]);
-// }
-
-// console.log(localStorage.length);
-
-// for (let i = 0; i < localStorage.length; i++) {
-//     console.log(localStorage[i]);
-// }
-
 function sample() { 
     return `
     <li class='item'>Фамилия:  ${localStorage.surname}</li>

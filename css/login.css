@@ -127,6 +127,7 @@ body {
     width: 20px;
     height: 20px;
     background: url(../img/view.svg) 0 0 no-repeat;
+    display: inline-block;
 }
 
 .view {
