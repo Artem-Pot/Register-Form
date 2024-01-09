@@ -28,7 +28,7 @@ html, body {
     -webkit-text-size-adjust: 100%;
 }
 input, button, textarea {
-    font-family:inherit;
+    font-family: inherit;
 }
 input::-ms-clear {
     display: none;
@@ -75,6 +75,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+.title {
+    font-size: 18px;
+    color: #363131;
 }
 
 .signin__box {

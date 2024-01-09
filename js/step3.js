@@ -50,7 +50,8 @@ function loginСheck() {
         errorPattern(login, errorLogin, 'Длина больше 30 символов');
         event.preventDefault(); 
     }
-    localStorage.setItem(login, login.value);
+    // localStorage.setItem(login, login.value);
+    localStorage.login = login.value;
 }
 
 //----------------------------------------------------------------
@@ -148,7 +149,8 @@ function comparePasswords() {
         errorPattern(passwordRepeat, errorPasswordRep,'Пароли не совпадают');
         event.preventDefault(); 
     }
-    localStorage.setItem(password, password.value);
+    // localStorage.setItem(password, password.value);
+    localStorage.password = password.value;
 }
 
 //проверка несовпадения пароля и логина

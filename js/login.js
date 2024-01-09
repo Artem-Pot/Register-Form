@@ -94,36 +94,14 @@ function showHidePassword(target){
 	return false;
 }
 
-
-//подключение базы данных
-const mysql = require("mysql2");
-const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "root",
-  database: "node_bd"
-});
-
-//проверка в базе данных логина
-const sql = `SELECT * FROM users`;
-
-
 // перенаправления на страницу с модальным окном в котором указано что удачный вход
 function redirection(){
-    connection.query(sql, function(err, results) {
-        if(err) console.log(err);
-        const users = results;
-    
-        for(let i=0; i < users.length; i++){
-          if(users[i].login === 'Потапов') {
-            console.log(`нашёлся Потапов`);
-            window.location.href = 'successfully.html';
-          }
-          else {
-            console.log(`не нашёлся Потапов`);
-          }
-        }
-    });
+    if(login.value === localStorage.login && password.value === localStorage.password) {
+        window.location.href = 'successfully.html';
+    }
+    else {
+        errorPattern(password, errorPassword, 'Неправильный логин или пароль');
+    }
 }
 
 buttonLogin.onclick = function() {

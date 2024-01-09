@@ -10,25 +10,24 @@
     <div class="wrapper">
         <section class="signin">
             <div class="signin__box"><span class="title">Форма авторизации</span>
-                <form class="form" method="post" action="">
+                <form class="form">
                     <div class="form__box">
                         <label for="login">Логин</label>
-                        <input type="text" name="login" id="login" maxlength="31" value="Потапов">
+                        <input type="text" name="login" id="login" maxlength="31">
                         <span class="error error_login"></span>
                     </div>
 
                     <div class="form__box_password">
                         <label for="password">Пароль</label>
-                        <input type="password" name="password" id="password" maxlength="31" value="qweQ1234">
+                        <input type="password" name="password" id="password" maxlength="31">
                         <a href="#" class="password-control" onclick="return showHidePassword(this);"></a>
                         <span class="error error_password"></span>
                     </div>
 
-                    <input type="submit" value="Войти" class="button_login">
+                    <input type="button" value="Войти" class="button_login">
                 </form>
 
                 <div class="block">
-                    <span class="signin__forgot"><a href="#">Забыли пароль?</a></span> /
                     <span class="signin__forgot"><a href="step1.html">Регистрация</a></span>
                 </div>
 

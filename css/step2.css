@@ -77,6 +77,11 @@ body {
     height: 100vh;
 }
 
+.title {
+    font-size: 18px;
+    color: #363131;
+}
+
 .signin__box {
     padding: 20px;
     width: 400px;
@@ -157,4 +162,6 @@ body {
     width: 250px;
     height: 90px;
     resize: none;
+    padding: 10px;
+    border-radius: 5px;
 }
